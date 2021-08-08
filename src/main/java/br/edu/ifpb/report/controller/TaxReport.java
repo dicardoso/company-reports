@@ -1,17 +1,19 @@
 package br.edu.ifpb.report.controller;
 
 import br.edu.ifpb.report.database.MysqlDatabaseConnector;
+import br.edu.ifpb.report.database.PostgreSQLDatabaseConnector;
+import br.edu.ifpb.report.database.DatabaseConnector;
 
 public class TaxReport extends ReportTemplate{
 
     private MysqlDatabaseConnector connector = new MysqlDatabaseConnector();
 
-    //O método generate será realocado para o template
-
+    //Método generate() será realocado para o template
+    //Método createDatabaseConnection() realocado para o template
     @Override
-    public void createDatabaseConnection() {
-        System.out.println("Creating Database Connection...");
-        connector.openConnection();
+    protected DatabaseConnector getConnector() {
+        //implementação do método abstrato
+    	return new PostgreSQLDatabaseConnector();
     }
 
     @Override

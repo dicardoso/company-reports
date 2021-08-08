@@ -1,6 +1,7 @@
 package br.edu.ifpb.report.controller;
 
 import br.edu.ifpb.report.database.PostgreSQLDatabaseConnector;
+import br.edu.ifpb.report.database.DatabaseConnector;
 
 public class ExpenseReport extends ReportTemplate{
 
@@ -10,9 +11,8 @@ public class ExpenseReport extends ReportTemplate{
 
     //Métodos sobrescritos
     @Override
-    public void createDatabaseConnection() {
-        System.out.println("Creating Database Connection...");
-        connector.createConnection();
+    protected DatabaseConnector getConnector() {
+    	return new PostgreSQLDatabaseConnector();
     }
 
     @Override
