@@ -1,19 +1,12 @@
 package br.edu.ifpb.report.service;
 
-import br.edu.ifpb.report.controller.ExpenseReport;
-import br.edu.ifpb.report.controller.TaxReport;
+import br.edu.ifpb.report.controller.ReportTemplate;
 
 public class ReportService {
 
-    ExpenseReport expenseReport = new ExpenseReport();
-    TaxReport taxReport = new TaxReport();
-
-    public void generateReport(String type) {
-        if (type.equals("expense")) {
-            expenseReport.generate();
-        } else {
-            taxReport.generate();
-        }
+    public void generateReport(ReportTemplate report) {
+        // Remove condicionais não mais necessárias
+        report.generate();
     }
 
 }
